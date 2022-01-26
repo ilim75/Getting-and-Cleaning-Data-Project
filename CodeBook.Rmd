@@ -1,0 +1,99 @@
+---
+title: "Human Activity Recognition Using Smartphones Dataset"
+date: "26 January 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Project description
+The purpose of the project is to collect, work with and clean data for later analysis. The dataset to be cleaned is represents data collected from the accelerometers from the Samsung Galaxy S smartphone. 
+
+The `run_analysis.R` script is used to complete the project.
+
+
+#### Collection of the raw data
+The experiments were carried out on a group of 30 volunteers, with each performing six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone on the waist.
+
+For each record it is provided:
+   - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+   - Triaxial Angular velocity from the gyroscope. 
+   - A 561-feature vector with time and frequency domain variables. 
+   - Its activity label. 
+   - An identifier of the subject who carried out the experiment.
+
+A full description of the data can be obtained from the [UCI Machine Learning Repository website.]("http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones")
+
+### Creating the tidy datafile
+#### Collecting data for processing
+Data was downloaded from the [UCI Machine Learning Repository website]("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip") and unzipped to 'UCI HAR Dataset' folder.
+
+Of the extracted files, the following files and datasets were relevant to this project:
+   - 'README.txt' - description of the data
+   - 'features_info.txt': Shows information about the variables used on the feature vector.
+   - 'features.txt': List of all features.
+   - 'activity_labels.txt': Links the class labels with their activity name.
+   - 'train/X_train.txt': Training set.
+   - 'train/y_train.txt': Training labels.
+   - 'test/X_test.txt': Test set.
+   - 'test/y_test.txt': Test labels.
+   - 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+   - 'test/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+#### run_analysis script
+The script does the following:
+1. Merges the training and the test sets to create one data set.
+   - cbind the datasets in the 'train' folder
+   - cbind the datasets in the 'test' folder
+   - rbind 'train' and 'test' data to make one dataset
+   - column names were assigned based on the subject, activity performed and associated features
+   
+2. Extracts only the measurements on the mean and standard deviation for each
+measurement.
+   - selected based on variables containing "mean" or "std"
+   
+3. Uses descriptive activity names to name the activities in the data set
+   - activity labels changed according to activity names. This was completed in part one after the data sets were merged
+   
+4. Appropriately labels the data set with descriptive variable names.
+   - column names with "Acc" were replaced with "Accelerometer"
+   - column names with "Gyro" were replaced with "Gyroscope"
+   - column names with "Mag" were replaced with "Magnitude"
+   - column names beginning with "t" were replaced with "Time"
+   - column names beginning with "f" were replaced with "Frequency"
+   - column names with "-mean()" were replaced with "Mean"
+   - column names with "-std()" were replaced with "StdDeviation"
+   - column names with "-freq-" were replaced with "Frequency"
+
+5. From the data set in step 4, creates a second, independent tidy data set with the
+average of each variable for each activity and each subject.
+   - data exported to "ave_data.txt"
+
+#### Variables used:
+
+   xtrain - dataframe of 7352 rows of 551 variables for x_train.txt
+   ytrain - dataframe of 7352 rows of 1 variable for y_train.txt
+   strain - dataframe of 7352 rows of 1 variable for subject_train.txt
+
+   xtest - dataframe of 2947 rows of 561 variables for x_test.txt
+   ytest - dataframe of 2947 rows of 1 variable for y_test.txt
+   stest - dataframe of 2947 rows of 1 variable for subject_test.txt
+
+   trainset - dataframe of 7352 rows of 563 variables, containing the combined training data, using cbind
+   testset - dataframe of 2947 rows of 563 variables, containing the combined test data, using cbind
+
+   features - dataframe of 561 rows of 2 variables, containing the list of all features
+
+   activities - dataframe of 6 rows of 2 variables, containing the activity names for each class
+
+   mergeddata - dataframe of 10299 rows of 563 variables, containing combined training and test data with rbind
+
+   mean_and_std_data - dataframe of 10299 rows with 88 variables after extracting only measurements on the mean and standard deviation for each measurement from the merged data
+
+   ave_data - dataframe of 180 rows with 88 variables
+
+
+
+
