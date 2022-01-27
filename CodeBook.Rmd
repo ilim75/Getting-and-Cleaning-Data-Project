@@ -71,28 +71,107 @@ measurement.
 average of each variable for each activity and each subject.
    - data exported to "ave_data.txt"
 
-#### Variables used:
 
-   xtrain - dataframe of 7352 rows of 551 variables for x_train.txt
-   ytrain - dataframe of 7352 rows of 1 variable for y_train.txt
-   strain - dataframe of 7352 rows of 1 variable for subject_train.txt
+#### Variables in the final dataset:
 
-   xtest - dataframe of 2947 rows of 561 variables for x_test.txt
-   ytest - dataframe of 2947 rows of 1 variable for y_test.txt
-   stest - dataframe of 2947 rows of 1 variable for subject_test.txt
-
-   trainset - dataframe of 7352 rows of 563 variables, containing the combined training data, using cbind
-   testset - dataframe of 2947 rows of 563 variables, containing the combined test data, using cbind
-
-   features - dataframe of 561 rows of 2 variables, containing the list of all features
-
-   activities - dataframe of 6 rows of 2 variables, containing the activity names for each class
-
-   mergeddata - dataframe of 10299 rows of 563 variables, containing combined training and test data with rbind
-
-   mean_and_std_data - dataframe of 10299 rows with 88 variables after extracting only measurements on the mean and standard deviation for each measurement from the merged data
-
-   ave_data - dataframe of 180 rows with 88 variables
+[1] "Subject"         
+        - integer type, indentifier for subjects [1:30]
+ [2] "Activity"
+        - character type, identifier for activity undertaken
+                - WALKING
+                - WALKING_UPSTAIRS
+                - WALKING_DOWNSTAIRS
+                - SITTING
+                - STANDING
+                - LAYING
+                
+Below are all of numeric type:     
+ [3] "TimeBodyAccelerometerMean()-X"                            
+ [4] "TimeBodyAccelerometerMean()-Y"                            
+ [5] "TimeBodyAccelerometerMean()-Z"                            
+ [6] "TimeGravityAccelerometerMean()-X"                         
+ [7] "TimeGravityAccelerometerMean()-Y"                         
+ [8] "TimeGravityAccelerometerMean()-Z"                         
+ [9] "TimeBodyAccelerometerJerkMean()-X"                        
+[10] "TimeBodyAccelerometerJerkMean()-Y"                        
+[11] "TimeBodyAccelerometerJerkMean()-Z"                        
+[12] "TimeBodyGyroscopeMean()-X"                                
+[13] "TimeBodyGyroscopeMean()-Y"                                
+[14] "TimeBodyGyroscopeMean()-Z"                                
+[15] "TimeBodyGyroscopeJerkMean()-X"                            
+[16] "TimeBodyGyroscopeJerkMean()-Y"                            
+[17] "TimeBodyGyroscopeJerkMean()-Z"  
+[18] "TimeBodyAccelerometerMagnitudeMean()"                     
+[19] "TimeGravityAccelerometerMagnitudeMean()"                  
+[20] "TimeBodyAccelerometerJerkMagnitudeMean()"                 
+[21] "TimeBodyGyroscopeMagnitudeMean()"                         
+[22] "TimeBodyGyroscopeJerkMagnitudeMean()"      
+[23] "FrequencyBodyAccelerometerMean()-X"                       
+[24] "FrequencyBodyAccelerometerMean()-Y"                       
+[25] "FrequencyBodyAccelerometerMean()-Z"                       
+[26] "FrequencyBodyAccelerometerMeanFreq()-X"                   
+[27] "FrequencyBodyAccelerometerMeanFreq()-Y"                   
+[28] "FrequencyBodyAccelerometerMeanFreq()-Z"         
+[29] "FrequencyBodyAccelerometerJerkMean()-X"                   
+[30] "FrequencyBodyAccelerometerJerkMean()-Y"                   
+[31] "FrequencyBodyAccelerometerJerkMean()-Z"                   
+[32] "FrequencyBodyAccelerometerJerkMeanFreq()-X"               
+[33] "FrequencyBodyAccelerometerJerkMeanFreq()-Y"               
+[34] "FrequencyBodyAccelerometerJerkMeanFreq()-Z"     
+[35] "FrequencyBodyGyroscopeMean()-X"                           
+[36] "FrequencyBodyGyroscopeMean()-Y"                           
+[37] "FrequencyBodyGyroscopeMean()-Z"                           
+[38] "FrequencyBodyGyroscopeMeanFreq()-X"                       
+[39] "FrequencyBodyGyroscopeMeanFreq()-Y"                       
+[40] "FrequencyBodyGyroscopeMeanFreq()-Z"   
+[41] "FrequencyBodyAccelerometerMagnitudeMean()"                
+[42] "FrequencyBodyAccelerometerMagnitudeMeanFreq()"            
+[43] "FrequencyBodyBodyAccelerometerJerkMagnitudeMean()"        
+[44] "FrequencyBodyBodyAccelerometerJerkMagnitudeMeanFreq()"   
+[45] "FrequencyBodyBodyGyroscopeMagnitudeMean()"                
+[46] "FrequencyBodyBodyGyroscopeMagnitudeMeanFreq()"            
+[47] "FrequencyBodyBodyGyroscopeJerkMagnitudeMean()"            
+[48] "FrequencyBodyBodyGyroscopeJerkMagnitudeMeanFreq()"  
+[49] "angle(tBodyAccelerometerMean,gravity)"                    
+[50] "angle(tBodyAccelerometerJerkMean),gravityMean)"           
+[51] "angle(tBodyGyroscopeMean,gravityMean)"                    
+[52] "angle(tBodyGyroscopeJerkMean,gravityMean)"                
+[53] "angle(X,gravityMean)"                                     
+[54] "angle(Y,gravityMean)"                                     
+[55] "angle(Z,gravityMean)"           
+[56] "TimeBodyAccelerometerStdDeviation()-X"                    
+[57] "TimeBodyAccelerometerStdDeviation()-Y"                    
+[58] "TimeBodyAccelerometerStdDeviation()-Z"                    
+[59] "TimeGravityAccelerometerStdDeviation()-X"                 
+[60] "TimeGravityAccelerometerStdDeviation()-Y"                 
+[61] "TimeGravityAccelerometerStdDeviation()-Z"                 
+[62] "TimeBodyAccelerometerJerkStdDeviation()-X"                
+[63] "TimeBodyAccelerometerJerkStdDeviation()-Y"                
+[64] "TimeBodyAccelerometerJerkStdDeviation()-Z"                
+[65] "TimeBodyGyroscopeStdDeviation()-X"                        
+[66] "TimeBodyGyroscopeStdDeviation()-Y"                        
+[67] "TimeBodyGyroscopeStdDeviation()-Z"                        
+[68] "TimeBodyGyroscopeJerkStdDeviation()-X"      
+[69] "TimeBodyGyroscopeJerkStdDeviation()-Y"                    
+[70] "TimeBodyGyroscopeJerkStdDeviation()-Z"                    
+[71] "TimeBodyAccelerometerMagnitudeStdDeviation()"             
+[72] "TimeGravityAccelerometerMagnitudeStdDeviation()"          
+[73] "TimeBodyAccelerometerJerkMagnitudeStdDeviation()"         
+[74] "TimeBodyGyroscopeMagnitudeStdDeviation()"                 
+[75] "TimeBodyGyroscopeJerkMagnitudeStdDeviation()"             
+[76] "FrequencyBodyAccelerometerStdDeviation()-X"               
+[77] "FrequencyBodyAccelerometerStdDeviation()-Y"               
+[78] "FrequencyBodyAccelerometerStdDeviation()-Z"               
+[79] "FrequencyBodyAccelerometerJerkStdDeviation()-X"           
+[80] "FrequencyBodyAccelerometerJerkStdDeviation()-Y"           
+[81] "FrequencyBodyAccelerometerJerkStdDeviation()-Z"           
+[82] "FrequencyBodyGyroscopeStdDeviation()-X"                   
+[83] "FrequencyBodyGyroscopeStdDeviation()-Y"                   
+[84] "FrequencyBodyGyroscopeStdDeviation()-Z"                   
+[85] "FrequencyBodyAccelerometerMagnitudeStdDeviation()"        
+[86] "FrequencyBodyBodyAccelerometerJerkMagnitudeStdDeviation()"
+[87] "FrequencyBodyBodyGyroscopeMagnitudeStdDeviation()"        
+[88] "FrequencyBodyBodyGyroscopeJerkMagnitudeStdDeviation()"
 
 
 
